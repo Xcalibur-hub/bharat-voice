@@ -1,50 +1,42 @@
-# Welcome to your Expo app 👋
+# 🇮🇳 BharatVoice AI 
+**Empowering Rural Citizens through Jargon-Free Government Assistance**
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Built for the **AMD Slingshot Hackathon 2026**.
 
-## Get started
+## 🚀 The Problem
+Millions of rural Indian citizens are eligible for government schemes like **PM-KISAN**, but the official documentation is often buried in complex legal jargon. This creates a "knowledge gap" where those who need help the most cannot access it.
 
-1. Install dependencies
+## 💡 The Solution
+**BharatVoice** is a mobile-first AI assistant that uses **Retrieval-Augmented Generation (RAG)** to provide accurate, simplified, and instant answers to scheme-related questions. It acts as a digital bridge between the government and the citizen.
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Technical Architecture
+The system is split into two main components:
+1. **Frontend:** React Native (Expo) mobile app providing a clean, accessible chat interface.
+2. **Backend:** FastAPI (Python) server hosting the RAG pipeline.
 
-2. Start the app
+### The RAG Pipeline (The "Brain"):
+* **Vector Database:** ChromaDB stores chunks of official government PDFs.
+* **Embeddings:** `all-MiniLM-L6-v2` (HuggingFace) transforms text into searchable vectors.
+* **LLM:** Google Gemini 1.5 Flash generates simplified, empathetic responses.
+* **Orchestration:** LangChain manages the flow between the user query, the retrieved documents, and the AI.
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🏗️ Setup & Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Backend
+1. Navigate to `/bharat-voice-backend`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Create a `.env` file with your `GEMINI_API_KEY`.
+4. Run: `uvicorn main:app --host 0.0.0.0 --port 8000`
 
-## Get a fresh project
+### Mobile App
+1. Navigate to `/BHARAT-VOICE-APP`
+2. Install dependencies: `npm install`
+3. Update `index.tsx` with your Backend URL.
+4. Run: `npx expo start`
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🌟 Future Roadmap
+* **Voice-to-Voice:** Multilingual support for Hindi, Marathi, and Tamil.
+* **Offline Mode:** Local LLM execution for areas with poor connectivity.
+* **Document Upload:** Allow users to snap a photo of a physical letter to get an explanation.
