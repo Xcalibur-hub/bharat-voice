@@ -41,3 +41,16 @@ app-example
 # generated native folders
 /ios
 /android
+# Secrets
+.env
+.env.local
+
+# Dependencies
+node_modules/
+__pycache__/
+.expo/
+dist/
+
+# Python Virtual Environments
+venv/
+.venv/
